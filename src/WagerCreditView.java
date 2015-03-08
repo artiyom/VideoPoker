@@ -55,6 +55,7 @@ public class WagerCreditView extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				dialog.setLocationRelativeTo(WagerCreditView.this);
 				dialog.setVisible(true);
 			}
 			
