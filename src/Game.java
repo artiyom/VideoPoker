@@ -70,7 +70,7 @@ public class Game extends JFrame {
 
 	public static void main(String[] args) {
 		Game window = new Game();
-		window.setTitle("Jacks or Better. Demo");
+		window.setTitle("Video Poker");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
 		window.pack();
