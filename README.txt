@@ -1,3 +1,4 @@
+This README file describes the interface that may be little different. It will be edited later.
 This is a program that will immitate a SLot Machine Poker Game: Jacks Or Better.
 
 You run the program. A window opens.
