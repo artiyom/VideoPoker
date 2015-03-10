@@ -77,10 +77,5 @@ public class CardDeck {
 		return card;
 	}
 	
-	//Debug
-	public int getNumberOfCards() {
-		return cardsLeft;
-	}
-	
 
 }

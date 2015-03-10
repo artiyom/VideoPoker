@@ -16,7 +16,7 @@ public class Hand {
 	private boolean straight = false;
 	private int[] cardHistogram = new int[13];
 	
-	//this are return factors
+	//these are return factors
 	//will be used when calculating the Win from each hand
 	public static final int LOW_PAIR = 0;
 	public static final int JACKS_OR_BETTER = 1; 
