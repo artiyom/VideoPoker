@@ -5,19 +5,19 @@ import java.lang.IllegalStateException;
  * @author Artyom M. a.k.a. artiyom
  *
  */
-public class Credit {
+public class CreditModel {
 	private double money;
 	/**
 	 * Default constructor creates 100 units of money
 	 */
-	public Credit() {
+	public CreditModel() {
 		this.money = 100;
 	}
 	/**
 	 * This constructor creates object with specified amount of money
 	 * @param money
 	 */
-	public Credit(double money) {
+	public CreditModel(double money) {
 		this.money = money;
 	}
 	

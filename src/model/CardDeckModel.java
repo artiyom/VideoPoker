@@ -2,17 +2,17 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 /**
- * This Class represents a Card Deck. It has an array of 52 cards.
+ * This Class represents a CardModel Deck. It has an array of 52 cards.
  * The cards are being created, shuffled here.
  * @author Artyom M. a.k.a. artiyom
  *
  */
 
-public class CardDeck {
-	private ArrayList<Card> cardDeck = new ArrayList<Card>();
+public class CardDeckModel {
+	private ArrayList<CardModel> cardDeck = new ArrayList<CardModel>();
 	private int cardsLeft;
 	
-	public CardDeck() {
+	public CardDeckModel() {
 		renewDeck();
 	}
 	
@@ -25,10 +25,9 @@ public class CardDeck {
 	
 	//This method initializes the array by creating 52 cards. They are Not shuffled here.
 	private void initializeDeck() {
-		int i, j;
-		for (i = Card.SPADES; i <= Card.CLUBS; i++) {
-			for (j = Card.TWO; j <= Card.ACE; j++) {
-				cardDeck.add(new Card(i, j));
+		for (CardSuit suit : CardSuit.values()) {
+			for (CardRank rank : CardRank.values()) {
+				cardDeck.add(new CardModel(suit, rank));
 			}
 			
 		}
@@ -52,7 +51,7 @@ public class CardDeck {
 	 */
 	public void shuffle() {
 		Random rand = new Random();
-		ArrayList<Card> temporaryArray = new ArrayList<Card>(cardDeck);
+		ArrayList<CardModel> temporaryArray = new ArrayList<CardModel>(cardDeck);
 		cardDeck.clear();
 		
 	    int i = 0;
@@ -68,14 +67,14 @@ public class CardDeck {
 	 * Returns the 'top' card of the Deck. 
 	 * @return
 	 */
-	public Card getCard() {
-		Card card = new Card();
+	public CardModel getCard() {
+		CardModel cardModel = new CardModel();
 		if (cardsLeft > 0) {
-			card = cardDeck.get(cardsLeft-1);
+			cardModel = cardDeck.get(cardsLeft-1);
 			cardDeck.remove(cardsLeft-1);
 			cardsLeft--;
 		}
-		return card;
+		return cardModel;
 	}
 	
 

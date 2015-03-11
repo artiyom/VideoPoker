@@ -10,12 +10,12 @@ import javax.swing.JPanel;
 
 import controller.ReturnTableController;
 import viewController.DealButtonPanel;
-import model.Credit;
-import model.PlayerCards;
-import model.Wager;
+import model.CreditModel;
+import model.PlayerCardsModel;
+import model.WagerModel;
 /**
  * This is the game's main class that will be called by OS
- * It creates all the main objects of the game (PlayerCards, PlayerCardsView, DealButtonPanel)
+ * It creates all the main objects of the game (PlayerCardsModel, PlayerCardsView, DealButtonPanel)
  * All the objects are created here to make sure that every module of the game is using the exactly 
  * same object.
  * Then this object adds all other objects to the main Frame so they get displayed.
@@ -25,7 +25,7 @@ import model.Wager;
 
 public class Game extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private PlayerCards playerCards = new PlayerCards();
+	private PlayerCardsModel playerCardsModel = new PlayerCardsModel();
 	private PlayerCardsView cardPanel;
 	
 	private ReturnTableView infoPanel;
@@ -34,8 +34,8 @@ public class Game extends JFrame {
 	
 	private DealButtonPanel control;
 	
-	private Wager wager = new Wager(5);
-	private Credit credit = new Credit(500);
+	private WagerModel wagerModel = new WagerModel(5);
+	private CreditModel creditModel = new CreditModel(500);
 	private WagerCreditView bet;
 	
 	//private GameLogic logic;
@@ -45,14 +45,14 @@ public class Game extends JFrame {
 	
 	private JPanel buttomPanel = new JPanel();
 	public Game() {
-		bet = new WagerCreditView(credit, wager);
+		bet = new WagerCreditView(creditModel, wagerModel);
 		infoPanel = new ReturnTableView();
 				
-		returnFactor = new ReturnTableController(infoPanel, credit);
+		returnFactor = new ReturnTableController(infoPanel, creditModel);
 		
-		cardPanel = new PlayerCardsView(playerCards);
+		cardPanel = new PlayerCardsView(playerCardsModel);
 	
-		control = new DealButtonPanel(playerCards, cardPanel, infoPanel, credit, bet, wager, returnFactor);
+		control = new DealButtonPanel(playerCardsModel, cardPanel, infoPanel, creditModel, bet, wagerModel, returnFactor);
 		
 		this.setLayout(new BorderLayout());
 		

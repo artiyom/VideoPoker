@@ -11,7 +11,7 @@ import javax.swing.Timer;
 
 /**
  * This class extends JLabel and is used in the program (in the ReturnTableView) to demonstrate 
- * the labels - the once that reprsent Hand Names and return factors. (top part of the GUI). This
+ * the labels - the once that reprsent HandModel Names and return factors. (top part of the GUI). This
  * label will start/stop blinking if sufficient methods are called. The blinking effect is used 
  * for those cases when this label represents the Wining hand and it's return value. On Casino 
  * Slot Machines the blinking effect is also used.

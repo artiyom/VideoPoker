@@ -9,13 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import viewController.WagerCreditSettingWindow;
-import model.Credit;
-import model.Wager;
+import model.CreditModel;
+import model.WagerModel;
 /**
  * This is Graphical class that displays the bet size and the money left
- * It's a view class for 2 model classed: Wager and Credit.
- * @see Wager
- * @see Credit
+ * It's a view class for 2 model classed: WagerModel and CreditModel.
+ * @see WagerModel
+ * @see CreditModel
  * @author Artyom M. a.k.a. artiyom
  *
  */
@@ -27,13 +27,13 @@ public class WagerCreditView extends JPanel {
 	private JLabel wagerLbl = new JLabel();
 	private JButton changeBtn = new JButton("...");
 	private WagerCreditSettingWindow dialog;
-	private Credit credit;
-	private Wager wager;
+	private CreditModel creditModel;
+	private WagerModel wagerModel;
 	
-	public WagerCreditView(Credit credit, Wager wager) {
-		this.credit = credit;
-		this.wager = wager;
-		this.dialog = new WagerCreditSettingWindow(credit, wager, wagerLbl, moneyLeft);
+	public WagerCreditView(CreditModel creditModel, WagerModel wagerModel) {
+		this.creditModel = creditModel;
+		this.wagerModel = wagerModel;
+		this.dialog = new WagerCreditSettingWindow(creditModel, wagerModel, wagerLbl, moneyLeft);
 		updateLabeles();
 	}
 	
@@ -51,10 +51,10 @@ public class WagerCreditView extends JPanel {
 		this.add(changeBtn);
 		
 		this.setBackground(new Color(0, 0, 100));
-		wagerLbl.setText(String.format("WAGER:  %.0f", wager.getWagerSize()));
+		wagerLbl.setText(String.format("WAGER:  %.0f", wagerModel.getWagerSize()));
 		wagerLbl.setForeground(Color.white);
 		
-		moneyLeft.setText(String.format("TOTAL MONEY:   %.0f", credit.getAmount()));
+		moneyLeft.setText(String.format("TOTAL MONEY:   %.0f", creditModel.getAmount()));
 		moneyLeft.setForeground(Color.white);
 		changeBtn.setFocusable(false);
 		changeBtn.addActionListener(new ActionListener() {
@@ -68,7 +68,7 @@ public class WagerCreditView extends JPanel {
 		});
 	}
 	public double getBetSize() {
-		return this.wager.getWagerSize();
+		return this.wagerModel.getWagerSize();
 	}
 	
 	/**

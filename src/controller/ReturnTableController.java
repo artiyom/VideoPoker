@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import view.ReturnTableView;
-import model.Credit;
+import model.CreditModel;
 /**
- * This class is a Controller class for the ReturnTable (Model Class)
+ * This class is a Controller class for the ReturnTableModel (Model Class)
  * It sets which column is currently provides return factors
  * @author Artyom M. a.k.a. artiyom
  *
@@ -27,7 +27,7 @@ public class ReturnTableController extends JPanel {
 	
 	
 	private int bet;
-	public ReturnTableController(ReturnTableView table, Credit credit) {
+	public ReturnTableController(ReturnTableView table, CreditModel creditModel) {
 		this.bet = table.getFactor();
 		if (bet == 1 || bet == 5) {
 			leftBtn.setEnabled(false);

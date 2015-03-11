@@ -11,14 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import model.Card;
+import model.CardModel;
 
 /**
- * This class is a GUI for the Card class
+ * This class is a GUI for the CardModel class
  * It extends JPanel and contains 2 labels one for the "Hold" label the other one - for the card
  * The constructor checks what card is assign and gets the sufficient image from the resources. 
  * The "Hold" label gets visible and invisible when clicking on the object. 
- * @see Card
+ * @see CardModel
  * @author Artyom M. a.k.a. artiyom
  *
  */
@@ -48,15 +48,15 @@ public class CardViewController extends JPanel {
 	}
 	
 	/**
-	 * The main constructor. It gets the Card object and assigns the Image to it.
-	 * @param card
+	 * The main constructor. It gets the CardModel object and assigns the Image to it.
+	 * @param cardModel
 	 */
-	public CardViewController(Card card) {
+	public CardViewController(CardModel cardModel) {
 		
 		
 		try {
 			//System.out.println("cards/" + card.getSuitName() + "/" + card.getValueName() + ".png");
-			this.url = CardViewController.class.getResource("/" + card.getSuitName() + "/" + card.getValueName() + ".png");
+			this.url = CardViewController.class.getResource("/" + cardModel.getSuitName() + "/" + cardModel.getRankName() + ".png");
 			
 		}
 		catch(NullPointerException e) {
@@ -72,12 +72,12 @@ public class CardViewController extends JPanel {
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(card.isHeld()) {
-					card.unhold();
+				if(cardModel.isHeld()) {
+					cardModel.unhold();
 					CardViewController.this.holdLbl.setText("");
 				}
-				else if (card.isHoldable() && !card.isHeld()) {
-					card.hold();
+				else if (cardModel.isHoldable() && !cardModel.isHeld()) {
+					cardModel.hold();
 					CardViewController.this.holdLbl.setText("Hold");
 				}
 				

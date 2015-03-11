@@ -5,13 +5,13 @@ package model;
  * @author Artyom M. a.k.a. artiyom
  *
  */
-public class Wager {
+public class WagerModel {
 	private double wagerSize;
-	public Wager() {
+	public WagerModel() {
 		this.wagerSize = 5;
 		
 	}
-	public Wager(int wagerSize) {
+	public WagerModel(int wagerSize) {
 		this.wagerSize = wagerSize;
 	}
 	public void setWagerSize(double n) {

@@ -11,10 +11,10 @@ import controller.ReturnTableController;
 import view.PlayerCardsView;
 import view.ReturnTableView;
 import view.WagerCreditView;
-import model.Credit;
-import model.PlayerCards;
-import model.ReturnTable;
-import model.Wager;
+import model.CreditModel;
+import model.PlayerCardsModel;
+import model.ReturnTableModel;
+import model.WagerModel;
 /**
  * This is a GUI class that contains the Deal/Draw button
  * Also it has most of the game logic
@@ -34,13 +34,13 @@ public class DealButtonPanel extends JPanel {
 	 * @param model
 	 * @param cardPanel
 	 * @param returnPanelView
-	 * @param credit
+	 * @param creditModel
 	 * @param wagerCreditView
-	 * @param wager
+	 * @param wagerModel
 	 * @param betFactor
 	 */
-	public DealButtonPanel(PlayerCards model, PlayerCardsView cardPanel, ReturnTableView returnPanelView, 
-			Credit credit, WagerCreditView wagerCreditView, Wager wager, ReturnTableController betFactor) {
+	public DealButtonPanel(PlayerCardsModel model, PlayerCardsView cardPanel, ReturnTableView returnPanelView, 
+			CreditModel creditModel, WagerCreditView wagerCreditView, WagerModel wagerModel, ReturnTableController betFactor) {
 
 		this.add(dealBtn);
 		this.setBackground(new Color(0, 0, 100));
@@ -55,7 +55,7 @@ public class DealButtonPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				/**
 				 * If the button was Deal.
-				 * It calls the deal() method in the PlayerCards object (model)
+				 * It calls the deal() method in the PlayerCardsModel object (model)
 				 * Then it withdraws money from the credit (if there is money there)
 				 * Disables all other Buttons in the game, so nothing can be changed while player is
 				 * in game.
@@ -65,7 +65,7 @@ public class DealButtonPanel extends JPanel {
 				if(dealBtn.getText().equals("Deal")) {
 					try {
 						
-						credit.withdrawMoney(wager.getWagerSize() * returnPanelView.getFactor());
+						creditModel.withdrawMoney(wagerModel.getWagerSize() * returnPanelView.getFactor());
 					}
 					catch(IllegalStateException e1) {
 						JOptionPane.showMessageDialog(null, "Your don't have enogh credit "
@@ -91,9 +91,9 @@ public class DealButtonPanel extends JPanel {
 				}
 				/**
 				 * This part works when the button was the Draw.
-				 * It calls model's (PlayerCards) draw() method and then updates Graphical cards
+				 * It calls model's (PlayerCardsModel) draw() method and then updates Graphical cards
 				 * Checks if there is a hand and adds sufficient amount of money -
-				 * (bet * return factor * bet factor) to the Credit. Enables all the disabled buttons. 
+				 * (bet * return factor * bet factor) to the CreditModel. Enables all the disabled buttons. 
 				 * Changes the Draw button back to Deal.
 				 */
 				else {
@@ -103,7 +103,7 @@ public class DealButtonPanel extends JPanel {
 					returnPanelView.updateLabels();
 					if (model.isTherePokerHand() == true) {
 						returnPanelView.startBlinking(model.getHandName());
-						credit.addMoney(wager.getWagerSize() * (new ReturnTable()).getReturnFactor(returnPanelView.getFactor(), model.getHand()));
+						creditModel.addMoney(wagerModel.getWagerSize() * (new ReturnTableModel()).getReturnFactor(returnPanelView.getFactor(), model.getHand()));
 						wagerCreditView.updateLabeles();
 					}
 					

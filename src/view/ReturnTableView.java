@@ -5,11 +5,11 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import model.ReturnTable;
+import model.ReturnTableModel;
 /**
  * This is a GUI class that prints the return table on the main window. 
- * This is the View class while the model class is the ReturnTable
- * @see ReturnTable
+ * This is the View class while the model class is the ReturnTableModel
+ * @see ReturnTableModel
  * @author Artyom M. a.k.a. artiyom
  *
  */
@@ -20,9 +20,9 @@ public class ReturnTableView extends JPanel {
 
 	private BlinkingLabel[][] infoLbls;
 	
-	private ReturnTable model = new ReturnTable();
+	private ReturnTableModel model = new ReturnTableModel();
 	/**
-	 * 6 panels are needed to display the Hand names, and 5 return tables
+	 * 6 panels are needed to display the HandModel names, and 5 return tables
 	 */
 	private JPanel verticalPanels[] = new JPanel[6];
 	
@@ -60,7 +60,7 @@ public class ReturnTableView extends JPanel {
 			this.verticalPanels[i].setBorder(BorderFactory.createLineBorder(new Color(252, 216, 0)));
 			
 			/**
-			 * Obtains the table info from the model (ReturnTable)
+			 * Obtains the table info from the model (ReturnTableModel)
 			 */
 			for (j = 0; j < ROW; j++) {
 				infoLbls[i][j] = new BlinkingLabel();

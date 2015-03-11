@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import view.WagerCreditView;
-import model.Credit;
-import model.Wager;
+import model.CreditModel;
+import model.WagerModel;
 /**
  * This is a Dialog that openes when user needs to change his bet size and the money he has
  * @author Artyom M. a.k.a. artiyom
@@ -22,22 +22,22 @@ import model.Wager;
 public class WagerCreditSettingWindow extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private Credit credit;
-	private Wager wager;
+	private CreditModel creditModel;
+	private WagerModel wagerModel;
 	private JLabel wagerLbl;
 	private JLabel moneyLeft;
 	
 	/**
 	 * We are receiving 4 variables from the WagerCreditView class, so they can be changed here.
 	 * @see WagerCreditView
-	 * @param credit
-	 * @param wager
+	 * @param creditModel
+	 * @param wagerModel
 	 * @param wagerLbl
 	 * @param moneyLeft
 	 */
-	public WagerCreditSettingWindow(Credit credit, Wager wager, JLabel wagerLbl, JLabel moneyLeft) {
-		this.credit = credit;
-		this.wager = wager;
+	public WagerCreditSettingWindow(CreditModel creditModel, WagerModel wagerModel, JLabel wagerLbl, JLabel moneyLeft) {
+		this.creditModel = creditModel;
+		this.wagerModel = wagerModel;
 		this.wagerLbl = wagerLbl;
 		this.moneyLeft = moneyLeft;
 		
@@ -45,7 +45,7 @@ public class WagerCreditSettingWindow extends JDialog {
 		JPanel topPanel = new JPanel();
 		JPanel bottomPanel = new JPanel();
 		topPanel.setBorder(BorderFactory.createTitledBorder("Choose Bet Amount"));
-		bottomPanel.setBorder(BorderFactory.createTitledBorder("Choose Credit Amount"));
+		bottomPanel.setBorder(BorderFactory.createTitledBorder("Choose CreditModel Amount"));
 		/**
 		 * 2 panels that hold 4 Radio Buttons each. 
 		 * Top one for bet and the buttom one for money amount.
@@ -68,12 +68,12 @@ public class WagerCreditSettingWindow extends JDialog {
 		betPick[3].setActionCommand("10.0");
 		betPick[3].addActionListener(new BetSizeListener());
 		/**
-		 * the flowing code obtains the atual bet-size from the Wager object, and sets that 
+		 * the flowing code obtains the atual bet-size from the WagerModel object, and sets that 
 		 * bet as the selected bet among these 4 radio buttons.
 		 */
 		int i = 0;
 		while(i < 4) {
-			if(betPick[i].getActionCommand().equals(String.valueOf(wager.getWagerSize()))) {
+			if(betPick[i].getActionCommand().equals(String.valueOf(wagerModel.getWagerSize()))) {
 				
 				betPick[i].setSelected(true);
 			}
@@ -124,7 +124,7 @@ public class WagerCreditSettingWindow extends JDialog {
 		this.setLayout(new GridLayout(2, 1));
 		this.add(topPanel);
 		this.add(bottomPanel);
-		this.setTitle("Wager and Credit settings.");
+		this.setTitle("WagerModel and CreditModel settings.");
 		//this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		this.pack();
 		//this.setVisible(true);
@@ -141,8 +141,8 @@ public class WagerCreditSettingWindow extends JDialog {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			wager.setWagerSize(Double.parseDouble(e.getActionCommand()));
-			wagerLbl.setText(String.format("WAGER:  %.0f", wager.getWagerSize()));
+			wagerModel.setWagerSize(Double.parseDouble(e.getActionCommand()));
+			wagerLbl.setText(String.format("WAGER:  %.0f", wagerModel.getWagerSize()));
 		}
 		
 	}
@@ -152,8 +152,8 @@ public class WagerCreditSettingWindow extends JDialog {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-			credit.setAmount(Double.parseDouble(e.getActionCommand()));
-			moneyLeft.setText(String.format("TOTAL MONEY:   %.0f", credit.getAmount()));
+			creditModel.setAmount(Double.parseDouble(e.getActionCommand()));
+			moneyLeft.setText(String.format("TOTAL MONEY:   %.0f", creditModel.getAmount()));
 		}
 		
 	}
