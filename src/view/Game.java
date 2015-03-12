@@ -9,13 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import controller.ReturnTableController;
-import viewController.DealButtonPanel;
+import viewController.DealButtonPanelViewController;
 import model.CreditModel;
 import model.PlayerCardsModel;
 import model.WagerModel;
 /**
  * This is the game's main class that will be called by OS
- * It creates all the main objects of the game (PlayerCardsModel, PlayerCardsView, DealButtonPanel)
+ * It creates all the main objects of the game (PlayerCardsModel, PlayerCardsView, DealButtonPanelViewController)
  * All the objects are created here to make sure that every module of the game is using the exactly 
  * same object.
  * Then this object adds all other objects to the main Frame so they get displayed.
@@ -32,7 +32,7 @@ public class Game extends JFrame {
 	private ReturnTableController returnFactor;
 	
 	
-	private DealButtonPanel control;
+	private DealButtonPanelViewController control;
 	
 	private WagerModel wagerModel = new WagerModel(5);
 	private CreditModel creditModel = new CreditModel(500);
@@ -52,7 +52,7 @@ public class Game extends JFrame {
 		
 		cardPanel = new PlayerCardsView(playerCardsModel);
 	
-		control = new DealButtonPanel(playerCardsModel, cardPanel, infoPanel, creditModel, bet, wagerModel, returnFactor);
+		control = new DealButtonPanelViewController(playerCardsModel, cardPanel, infoPanel, creditModel, bet, wagerModel, returnFactor);
 		
 		this.setLayout(new BorderLayout());
 		

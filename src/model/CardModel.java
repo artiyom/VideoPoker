@@ -14,8 +14,6 @@ package model;
  */
 
 
-
-
 public class CardModel {
 	private String suitName;
 	private String rankName;
@@ -24,19 +22,15 @@ public class CardModel {
 	private boolean held;
 	private boolean holdable = false;
 	
-	
 
 	/**
 	 * This constructor is used to create a dummy "Face down" card that doesn't have a rank or suit
 	 * It's used in the game at the starting screen, when the game just started but no bets were made
 	 */
 	public CardModel() {
-		//this.suit = CardSuit.DUMMYSUIT;
-		//this.value = DUMMYNAME;
 		this.suitName = "DUMMYSUIT";
 		this.rankName = "DUMMYRANK";
 		this.held = false;
-		//CardNameInitializer();
 	}
 	/**
 	 * This is the main constructor, it gets 2 numerical values that represent the Suit and the Value
@@ -51,7 +45,7 @@ public class CardModel {
 			this.suit = suit;
 		}
 		else {
-			throw new IllegalArgumentException("Out of range: " + suit);
+			throw new IllegalArgumentException(suit + " is out of range.");
 				
 		}
 		
@@ -60,7 +54,7 @@ public class CardModel {
 			this.rank = rank;
 		}
 		else {
-			throw new IllegalArgumentException("Out of range: " + rank);
+			throw new IllegalArgumentException(rank + " is out of range.");
 		}
 		
 		CardNameInitializer();

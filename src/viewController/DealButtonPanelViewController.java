@@ -22,7 +22,7 @@ import model.WagerModel;
  *
  */
 
-public class DealButtonPanel extends JPanel {
+public class DealButtonPanelViewController extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -39,7 +39,7 @@ public class DealButtonPanel extends JPanel {
 	 * @param wagerModel
 	 * @param betFactor
 	 */
-	public DealButtonPanel(PlayerCardsModel model, PlayerCardsView cardPanel, ReturnTableView returnPanelView, 
+	public DealButtonPanelViewController(PlayerCardsModel model, PlayerCardsView cardPanel, ReturnTableView returnPanelView, 
 			CreditModel creditModel, WagerCreditView wagerCreditView, WagerModel wagerModel, ReturnTableController betFactor) {
 
 		this.add(dealBtn);

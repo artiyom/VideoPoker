@@ -18,7 +18,7 @@ public class ReturnTableView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private BlinkingLabel[][] infoLbls;
+	private BlinkingLabelView[][] infoLbls;
 	
 	private ReturnTableModel model = new ReturnTableModel();
 	/**
@@ -36,7 +36,7 @@ public class ReturnTableView extends JPanel {
 	 * Main constructor.  
 	 */
 	public ReturnTableView() {
-		infoLbls = new BlinkingLabel[COLUMN][ROW];
+		infoLbls = new BlinkingLabelView[COLUMN][ROW];
 		updateLabels();
 		this.highlightedColumn = 1;
 		this.highlightColumn();
@@ -63,7 +63,7 @@ public class ReturnTableView extends JPanel {
 			 * Obtains the table info from the model (ReturnTableModel)
 			 */
 			for (j = 0; j < ROW; j++) {
-				infoLbls[i][j] = new BlinkingLabel();
+				infoLbls[i][j] = new BlinkingLabelView();
 				if(i == 0) {
 					infoLbls[i][j].setText(model.getHandName(j));
 					verticalPanels[i].add(infoLbls[i][j]);
@@ -80,7 +80,7 @@ public class ReturnTableView extends JPanel {
 	
 	/**
 	 * Makes the given row in the table to blink.
-	 * @see BlinkingLabel
+	 * @see BlinkingLabelView
 	 * @param handName
 	 */
 	public void startBlinking(String handName) {

@@ -20,7 +20,7 @@ import javax.swing.Timer;
  *
  */
 
-public class BlinkingLabel extends JLabel {
+public class BlinkingLabelView extends JLabel {
 	
 	private static final long serialVersionUID = 1L;
 	private Font font; //the font of this label
@@ -30,13 +30,13 @@ public class BlinkingLabel extends JLabel {
 	private Timer timer;
 	
 	//the same as JLabel()
-	public BlinkingLabel() {
+	public BlinkingLabelView() {
 		super();
 		setDefaultSettings();
 	}
 	
 	//the same as JLabel("label")
-	public BlinkingLabel(String string) {
+	public BlinkingLabelView(String string) {
 		super(string);
 		setDefaultSettings();
 	}
@@ -68,11 +68,11 @@ public class BlinkingLabel extends JLabel {
 		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if (BlinkingLabel.this.getForeground().equals(Color.WHITE)) {
-				BlinkingLabel.this.setForeground(new Color(254, 252, 0));
+			if (BlinkingLabelView.this.getForeground().equals(Color.WHITE)) {
+				BlinkingLabelView.this.setForeground(new Color(254, 252, 0));
 			}
 			else {
-				BlinkingLabel.this.setForeground(Color.WHITE);
+				BlinkingLabelView.this.setForeground(Color.WHITE);
 			}
 			
 		}
