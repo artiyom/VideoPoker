@@ -27,7 +27,6 @@ public class Game extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private PlayerCardsModel playerCardsModel = new PlayerCardsModel();
 	private PlayerCardsView cardPanel;
-	
 	private ReturnTableView infoPanel;
 	private ReturnTableController returnFactor;
 	

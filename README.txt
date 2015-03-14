@@ -1,33 +1,13 @@
-This README file describes the interface that may be little different. It will be edited later.
-This is a program that will immitate a SLot Machine Poker Game: Jacks Or Better.
+A VideoPoker games are usually played on Casino slot machines.
+A VideoPoker is computer variant of a poker game, that usually has only one player.
+The player presses the Deal button and is being dealt 5 cards, and a Bet amount (previously chosen) is being withdrawn from the player's Credit. The 5 cards that have been dealt to the user, may or may not have a poker combination (A hand). After the cards are dealt, the player must decide, how many of these cards he wants to hold and how many cards get substituted, so the player might get a better hand. After these decision, player presses the Draw button and those card that he didn't hold, get substituted. Here again, the new cards that he gets and the ones that he held may or may not ave a poker hand. If they have a poker hand, the player wins money (the bet amount times the multiplier of this hand). The list of return values (the multiplier) is listed on the top part of the game's window.
 
-You run the program. A window opens.
-On the top there is a little screen (1) showing all the possible combinations in this game and how much money you get in return for your bet in multiples.
+An example of a game:
+Player is dealt: Ten of Hearts, Two of Spades, Nine of Spades, Six of Hearts, and Nine of Diamonds. Among these 5 cards, the only valuable cards are the 2 Nines, because only these 2 cards represent a poker hand named "A pair". So the player may chose to discard the other 3 cards, so he gets 3 new cards instead of them, and this new combination may be more valuable than the original 2 Nines. User makes a click over the 2 Nines, and a "HOLD" marker appears above them, and then user presses the Draw button. The 3 cards disappear and 3 new cards come: Ace of Diamonds, Nine of Hearts and Four of Clubs. This is the final combination that will be considered by the game's AI and it will be decided if the player lost his bet or won, and if won, how much (in multiplier of his initial bet) he won. In this particular case, user had initially 2 Nines (A Pair) but then he got another Nine and got	a hand called "Three of a Kind". This hand usually returns the 3 times the bet.This particular Video Poker game is called "Jacks or Better", which means the pair of Jacks is the minimum winning hand of this game. So if you got 2 Tens, or 2 Nines, you lost the bet.
 
-Under this screen it has screen with all the cars the user was delt. 
-Under it, are the control elemets:
-Buttons 1, 2, 3, 5 that mean how much money your betting. Next to this buttons a little screen that show how much money is left. And a little screen that shows how much money is currently being bet. 
+It requires a lot of intellectual skills and knowledge of the basic strategy in order to play this game right, that's why this game is one of the most popular games on the casino machines, and one of the most profitable ones - player gets 99.54% of all the money left in the machine if he knows the game's strategy.
 
-Then comes Deal/Draw button.
+A not: 99.54% return is only in case if the return factor for the Flush is 6 and for Full House - 9. This kind of machines are called "Jacks or Better 6/9" and they are the most profitable ones, but very rare on the Las Vegas casino's floor.
+The most popular available Jacks or Better machine in the Las Vegas is the "5/8" game, that has 5 as the return factor for the Flush, and 8 as the return factor for the Full House. This game's return is less profitable, but it is still pretty high - 97.29%.
 
-
-
-After the program starts, all cards are face down. By defult, $1 bet is chosen but user is free to press any other betting button. If he does so, it is equivalent of pressing the Deal button (see below).
-
-If the cards are still face down, and a bet is chosen, it is time for the user to press Deal button. This "turns" the 5 cards face up and the Deal button becomes Draw button.
-
-There is a Card class, that represents a playing card. 
-It is one out of 52 other cards. The value of the card is being assigned at the creation.
-
-
-There is a GameField class
-
-
-
-Now 5 cards are seen on the screen. They may or may not have some kind of poker combination. In case if they have a combination, the combination screen (1) is highlating that combination in its list and showing the return value for it.
-
-User now should pick those cards that he wants to remain (0 to 5) by clicking over them. Once clicked, a HOLD lavel appeares above that card. After all desired cards have been picked, user presses the DRAW button and those cards that weren't picked, are being substituted with new cards from the deck. 
-
-Now again, if the new cards contain a poker combination then combination screen (1) is highlating that combination in its list and showing the return value for it. And user is winning the money he had bet times the return value for the given combination. The DRAW button becomed Deal again. 
-
-
+P.S. I have already started designing a module for this game, that will help the player to learn the basic strategy, after this will be accomplished, this game will be one of the most advanced game of that kind, avaliable on the Internet for free.
